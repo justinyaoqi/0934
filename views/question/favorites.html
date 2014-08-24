@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/static/css/metro-bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/metro-bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="/static/plugin/umeditor/themes/default/css/umeditor.min.css">
+    <script type="text/javascript" src="/static/js/base/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/base/jquery.widget.min.js"></script>
+    <script type="text/javascript" src="/static/js/base/metro-carousel.js"></script>
+    <script type="text/javascript" src="/static/js/base/metro-hint.js"></script>
+    <script type="text/javascript" src="/static/js/base/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="/static/js/question/ed.js"></script>
+</head>
+
+<body class="metro" style="">
+    <div class="container bg-lighterBlue" style="">
+        <div style="width:1200px;margin:0 auto;text-align:center;">
+            <div class="navigation-bar fixed-top">
+                <div class="navigation-bar-content" style="width:1100px;margin:0 auto;text-align:center;">
+                    <a href="/" class="element">
+                        <span class="icon-grid-view"></span>大庆阳 <sup>吧</sup>
+                    </a>
+                    <span class="element-divider"></span>
+
+                    <a class="pull-menu" href="#"></a>
+
+
+                    <span class="element-divider"></span>
+
+                    <a class="pull-menu" href="#"></a>
+                    <a href="/" class="element">
+                        <span class=""></span>问答
+                    </a>
+                    <span class="element-divider"></span>
+                    <a href="/" class="element">
+                        <span class=""></span>招聘
+                    </a>
+                    <span class="element-divider"></span>
+                    <a href="/" class="element">
+                        <span class=""></span>花钱约下
+                    </a>
+
+                    <ul class="element-menu drop-up place-right">
+                        {{if .user}}
+                        <li>{{range $key,$val:=.user}}
+                            <a class="dropdown-toggle" href="#">{{$val.User_name}}</a>
+                            <ul class="dropdown-menu " data-role="dropdown">
+                                <li><a href="requirements.html">我的主页</a>
+                                </li>
+                                <li>
+                                    私信
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="responsive.html">设置</a>
+                                </li>
+                                <li class=""><a href="layouts.html">退出</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="icons.html">Icons</a>
+                                </li>
+                            </ul>
+                            {{end}}
+                        </li>
+                        {{else}}
+                        <a class="dropdown-toggle" href="#">登录</a>
+                        <ul class="dropdown-menu " data-role="dropdown">
+                            <li><a href="requirements.html">我的主页</a>
+                            </li>
+
+                        </ul>
+                        {{end}}
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

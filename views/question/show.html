@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/static/css/metro-bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/metro-bootstrap-responsive.css">
+    <script type="text/javascript" src="/static/js/base/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/plugin/umeditor/themes/default/css/umeditor.min.css">
+    <script type="text/javascript" src="/static/js/base/jquery.widget.min.js"></script>
+    <script type="text/javascript" src="/static/js/base/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="/static/js/question/show.js"></script>
+
+</head>
+
+<body class="metro">
+    <script type="text/javascript" src="/static/plugin/umeditor/umeditor.config.js"></script>
+
+    <script type="text/javascript" src="/static/plugin/umeditor/umeditor.min.js"></script>
+    <div style="margin:0 auto;background:#EEEEEE;">
+        <nav class="navigation-bar light" style="margin:0 auto;width:1200px;">
+            <nav class="navigation-bar-content">
+
+                <div class="element">
+                    <a class="title fg-wirte" href="/index">
+                        <span><i class="icon-home"></i>大庆阳</span>
+                    </a>
+                </div>
+                <span class="element-divider"></span>
+                <div class="element">
+                    <a class="title fg-wirte" href="/index">
+                        <span>问答</span>
+                    </a>
+                </div>
+                <span class="element-divider"></span>
+                <div class="element">
+                    <a class="title fg-wirte" href="/index">
+                        <span>
+                            商城
+                        </span>
+                    </a>
+                </div>
+                <span class="element-divider"></span>
+                <div class="element place-right">
+                    <a class="" href="#">
+                        <span><i class="icon-comments-3 on-left-more"></i>通知</span>
+                    </a>
+                </div>
+                <span class="element-divider place-right">
+                </span>
+                <span class="element-divider place-right"></span>
+                <div class="element place-right">
+                    <a class="" href="#">
+                        <span><i class="icon-user on-left-more"></i>姚琦</span>
+                    </a>
+                </div>
+            </nav>
+        </nav>
+    </div>
+
+    <div class="grid" style="margin:0 auto;width:1200px;">
+        <div class="row">
+            <div class="span11">
+                <div style="height:auto;">
+                    <div class="span1"></div>
+                    <div class="span10">
+                        <div>这里是标签</div>
+                        <div style="">
+                            {{range $key,$val:=.qt}}
+                            <h4>{{html2str  $val.Question_content}}</h4>
+
+
+                            <div style="" class="tertiary-text-secondary">
+                                <small>
+                                    <div>分类:感情
+                                        <span>发表时间:{{date $val.Add_time "Y-m-d H:i:s"}}</span>
+                                    </div>
+                                </small>
+                            </div>
+                            <p style="text-indent:2em;padding:10px 0;" class="tertiary-text">
+                                {{str2html  $val.Question_detail}}
+                            </p>
+                            <div style="padding:5px 0;">
+                                <span class="tertiary-text-secondary" style="margin-left:10px;" onclick="getAuestionCommnets({{$val.Question_id}})">
+                                    <span class=" icon-comments-2 fg-lighterBlue
+"></span>
+                                    <small>
+                                        评论
+                                    </small>
+                                </span>
+                                <span class="tertiary-text-secondary" style="margin-left:10px;">
+                                    <span class=" icon-comments-2 fg-lighterBlue
+"></span>
+                                    <small>
+                                        分享
+                                    </small>
+                                </span>
+                                <span class="tertiary-text-secondary" style="margin-left:10px;">
+                                    <span class=" icon-comments-2 fg-lighterBlue
+"></span>
+                                    <small>
+                                        邀请回答
+                                    </small>
+                                </span>
+                                <span class="tertiary-text-secondary" style="margin-left:10px;">
+                                    <span class=" icon-comments-2 fg-lighterBlue
+"></span>
+                                    <small>
+                                        举报
+                                    </small>
+                                </span>
+                            </div>
+                            {{end}}
+
+                        </div>
+                        <div class="span8" style="border:1px solid #efeae3;padding:10px 15px;">
+                            {{range $key,$val:=.qcomments}}
+                            <div style="border-bottom:1px solid #efeae3;">
+                                <div class="span1">
+                                    <img class="span1" src="/static/img/face/6.jpg">
+                                </div>
+                                <div class="span6">
+                                    <small><a class="tertiary-text-secondary" href="">
+                                        姚琦
+                                    </a>
+                                    </small>
+                                    <p class="tertiary-text-secondary">
+                                        <small>{{$val.Message}}}</small>
+                                    </p>
+                                    <div>
+                                        <span class="tertiary-text-secondary">
+                                            <small>{{$val.Time}}</small>
+                                        </span>
+                                        <span class="tertiary-text-secondary">
+                                            <small>回复</small>
+                                        </span>
+                                        <span class="tertiary-text-secondary">
+                                            <small>举报</small>
+                                        </span>
+                                        <span class="tertiary-text-secondary">
+                                            <small>赞</small>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div style="clear:both"></div>
+
+                            </div>
+                            {{end}}
+                            <div>
+                                <div></div>
+                                <script type="text/javascript" charset="utf-8">
+                                window.UEDITOR_HOME_URL = "/static/plugin/umeditor/";
+                                </script>
+
+                                <div class="place-right" style="background-color:;" id="">
+                                    <form action="" method="post" enctype="multipart/form-data">
+                                        <script type="text/plain" id="acomments" name="acomments" style="width:800px;height:40px;" charset="utf-8"></script>
+                                        <script type="text/javascript" charset="utf-8">
+                                        var options = {
+                                            "fileUrl": "/question/Image",
+                                            "filePath": "",
+                                            "imageUrl": "/question/Image",
+                                            "imagePath": "",
+                                            toolbar: [
+
+                                                ' emotion',
+                                            ],
+                                            initialFrameWidth: 590
+                                        };
+                                        var ue = UM.getEditor('acomments', options);
+                                        </script>
+
+                                        <input class="place-right" type="submit" name="submit" value="提交">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear:both;">
+
+                    </div>
+
+                </div>
+                <div class="clear:both;"></div>
+                {{range $key,$val:=.answer}}
+                <div style="clear:both;"></div>
+                <div onmouseover="bgchanged({{$val.Answer_id}})" id="qc_{{$val.Id}}" style="maring-bottom:15px;height:auto;">
+
+                    <div class="span1" style="text-align:center;">
+                        <h6 class="fg-darkCyan">{{$val.Agree_count}}</h6>
+                    </div>
+                    <div class="span10 " style="border-top:1px solid #efeae3; padding:10px 0;">
+
+                        <div>
+                            <div class="span9">
+                                <div>
+                                    <h5 class="margin0"><a href="/user/home">姚琦,,神奇的互联网纹</a>
+                                    </h5>
+                                </div>
+                                <div>
+                                    <span class="tertiary-text-secondary" style="">
+                                        <small>谁看见对方你看撒都不会放</small>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="span1 ">
+                                <img class="span1" src="/static/img/face/6.jpg">
+                            </div>
+                            <div style="clear:both;">
+
+                            </div>
+                        </div>
+                        <p class="tertiary-text" style="line-height:20px;">{{$val.Answer_content}}</p>
+                        <div class="">
+                            <span id="qc_{{$val.Answer_id}}_dd" style="display:none;">
+                                <span onclick="think({{$val.Answer_id}})" class="place-right tertiary-text-secondary" style="margin-left:10px;">
+                                    <span class="icon-coffee fg-lighterBlue"></span>
+                                    <small>感谢(5)</small>
+                                </span>
+
+                                <span class="place-right tertiary-text-secondary" style="margin-left:10px;">
+                                    <span class=" icon-power fg-lighterBlue"></span>
+                                    <small>举报(9)</small>
+                                </span>
+                                <span onclick="loveTopic()" class="place-right tertiary-text-secondary" style="margin-left:10px;">
+                                    <span class="icon-bookmark fg-lighterBlue"></span>
+                                    <small>收藏(20)</small>
+                                </span>
+
+                                <span onclick="NoHelp()" class="place-right tertiary-text-secondary" style="margin-left:10px;">
+                                    <span class="icon-diamonds fg-lighterBlue"></span>
+                                    <small>没有帮助(
+                                        <span id="nohelp_">8</span>)</small>
+                                </span>
+                                <span id="Zan_" class="place-right tertiary-text-secondary" style="margin-left:10px;">
+                                    <span class=" icon-heart fg-lighterBlue"></span>
+                                    <small>赞(
+                                        <span id="zan_">8</span>)</small>
+                                </span>
+                                <span class="place-left tertiary-text-secondary" style="margin-left:10px;">
+                                    <small>
+
+                                    </small>
+                                </span>
+                            </span>
+                            <span>
+                                <span id="quickanswer_" onclick="AddComments({{$val.Answer_id}})" class="place-left tertiary-text-secondary" style="">
+                                    <span class=" icon-comments-2 fg-lighterBlue
+"></span>
+                                    <small>
+                                        评论(21)
+                                    </small>
+                                </span>
+                                <span class="place-left tertiary-text-secondary" style="margin-left:10px;">
+                                    <small>
+                                        <span class="icon-share-2 fg-lighterBlue"></span>分享(76)</small>
+                                </span>
+                            </span>
+                        </div>
+                        <div style="clear:both;">
+
+                        </div>
+                        <div id="answer_{{$val.Answer_id}}" style="display:none;margin-top:20px;">
+                            <div></div>
+                            <script type="text/javascript" charset="utf-8">
+                            window.UEDITOR_HOME_URL = "/static/plugin/umeditor/";
+                            </script>
+
+                            <div style=";background:#EEEEEE;padding:20px;" id="">
+
+                                <script type="text/plain" id="acomments_{{$val.Answer_id}}" name="acomments" style="width:800px;height:240px;" charset="utf-8"></script>
+                                <script type="text/javascript" charset="utf-8">
+                                var options = {
+                                    "fileUrl": "/question/Image",
+                                    "filePath": "",
+                                    "imageUrl": "/question/Image",
+                                    "imagePath": "",
+                                    toolbar: [
+
+                                        ' emotion image ',
+                                    ],
+                                    initialFrameWidth: 730
+                                };
+                                var ue = UM.getEditor('acomments_{{$val.Answer_id}}', options);
+                                </script>
+                                <button onclick="AddAnswerComments({{$val.Question_id}},{{$val.Answer_id}})">提交</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="clear:both;">
+
+                    </div>
+                </div>
+
+                {{end}}
+                <div>
+                    <div style="height:100px;"></div>
+                    <script type="text/javascript" charset="utf-8">
+                    window.UEDITOR_HOME_URL = "/static/plugin/umeditor/";
+                    </script>
+
+                    <div class="place-right" style=";background:#EEEEEE;padding:20px;" id="">
+
+                        <script type="text/plain" id="acomments_" name="acomments" style="width:800px;height:240px;" charset="utf-8"></script>
+                        <script type="text/javascript" charset="utf-8">
+                        var options = {
+                            "fileUrl": "/question/Image",
+                            "filePath": "",
+                            "imageUrl": "/question/Image",
+                            "imagePath": "",
+                            toolbar: [
+
+                                ' emotion image ',
+                            ],
+                            initialFrameWidth: 730
+                        };
+                        var ue = UM.getEditor('acomments_', options);
+                        </script>
+                        <button onclick="AddAnswerComments()">提交</button>
+                    </div>
+                </div>
+            </div>
+            <div class="span3" style="width:200px;padding-right:10px;">
+
+                <div>
+                    <button class="large bg-darkRed fg-white">关注</button>
+                </div>
+                <div>
+                    <h6>12342关注该问题</h6>
+                    <div>
+                        头像
+                    </div>
+                    <div>
+                        广告
+                    </div>
+                    <div>
+                        <h6>问题状态</h6>
+                        <div>
+                            <span>最近...</span>
+                            </br>
+                            <span>被浏览多少次</span>
+                        </div>
+                    </div>
+                </div>
+                </script>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript" src="/static/js/base/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/base/jquery.widget.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/metro-bootstrap.min.css">
+</head>
+
+<body class="metro">
+    <div class="grid">
+        <div class="row">
+            <div class="" style="height:60px;">
+
+            </div>
+            <div class=" title double-vertical " style="margin:0 auto;height:400px;width:1000px;text-aligh:center;">
+                <div class="tile-content form">
+                    <div class="span8 bg-lightTeal" style="padding:20px;border-right:1px solid silver;">
+                        <form id="uform" action="/user/regester" method="post">
+                            <fieldset>
+                                <legend>注册:</legend>
+                                <label>用户名:
+                                    <small>(注册后不可修改)</small>
+                                </label>
+                                <div class="input-control text" data-role="input-control">
+                                    <input type="text" id="regname" name="uname" placeholder="请输入用户名...">
+                                    <button class="btn-clear" tabindex="-1"></button>
+                                </div>
+                                <label>输入密码:</label>
+                                <div class="input-control password" data-role="input-control">
+                                    <input type="password" id="regpass" name="regpass" placeholder="请输入密码...." autofocus>
+                                    <button class="btn-reveal" tabindex="-1"></button>
+                                </div>
+                                <label>确认密码:</label>
+                                <div class="input-control password" data-role="input-control">
+                                    <input type="password" id="reregpass" name="reregpass" placeholder="请确认输入密码无误...." autofocus>
+                                    <button class="btn-reveal" tabindex="-1"></button>
+                                </div>
+                                <div class="input-control checkbox" data-role="input-control">
+                                    <label>
+                                        <input type="checkbox" name="cbox" checked />
+                                        <span class="check"></span>
+                                        同意注册/
+                                        <small><i><a href="">请遵守....</a></i>
+                                        </small>
+                                    </label>
+                                </div>
+
+                                <div>
+
+                                </div>
+
+                                <input type="submit" id="submit" name="submit" value="确认注册">
+                            </fieldset>
+                        </form>
+                        <div class="notice" style="display:none;">
+                            <span>
+                                密码不相同
+                            </span>
+                        </div>
+                        <script type="text/javascript">
+                        $("#regname").blur(function() {
+                            if (!$("#regname").val()) {
+                                //alert($("#regname").val());
+                                alert("请输入用户名");
+                            };
+                        });
+                        $("#reregpass").blur(function() {
+                            if ($("#regpass").val() != $("#reregpass").val()) {
+                                alert("密码不一致");
+                            };
+                            //alert();
+
+                        });
+                        </script>
+                    </div>
+                    <div class="span4 bg-lightTeal" style="padding:20px;">
+                        <form id="uform" action="/index/Login" method="post">
+                            <fieldset>
+                                <legend>已注册----->>>请登录</legend>
+                                <label>用户名:</label>
+                                <div class="input-control text" data-role="input-control">
+                                    <input type="text" id="inputname" name="uname" placeholder="请输入用户名...">
+                                    <button class="btn-clear" tabindex="-1"></button>
+                                </div>
+                                <label>密 码:</label>
+                                <div class="input-control password" data-role="input-control">
+                                    <input type="password" id="inputpass" name="upass" placeholder="请输入密码...." autofocus>
+                                    <button class="btn-reveal" tabindex="-1"></button>
+                                </div>
+                                <div class="input-control checkbox" data-role="input-control">
+                                    <label>
+                                        <input type="checkbox" name="cbox" checked />
+                                        <span class="check"></span>
+                                        记住我/
+                                        <small><i>默认一周</i>
+                                        </small>
+
+                                    </label>
+                                </div>
+
+                                <div>
+
+                                </div>
+
+                                <input type="submit" name="submit" value="登陆">
+                            </fieldset>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

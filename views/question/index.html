@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/static/css/metro-bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/metro-bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="/static/plugin/umeditor/themes/default/css/umeditor.min.css">
+    <script type="text/javascript" src="/static/js/base/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/base/jquery.widget.min.js"></script>
+    <script type="text/javascript" src="/static/js/base/metro-carousel.js"></script>
+    <script type="text/javascript" src="/static/js/base/metro-hint.js"></script>
+    <script type="text/javascript" src="/static/js/base/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="/static/js/question/ed.js"></script>
+</head>
+
+<body class="metro" style="">
+    <div class="container bg-lighterBlue" style="">
+        <div style="width:1200px;margin:0 auto;text-align:center;">
+            <div class="navigation-bar fixed-top">
+                <div class="navigation-bar-content" style="width:1100px;margin:0 auto;text-align:center;">
+                    <a href="/" class="element">
+                        <span class="icon-grid-view"></span>大庆阳 <sup>吧</sup>
+                    </a>
+                    <span class="element-divider"></span>
+
+                    <a class="pull-menu" href="#"></a>
+
+
+                    <span class="element-divider"></span>
+
+                    <a class="pull-menu" href="#"></a>
+                    <a href="/" class="element">
+                        <span class=""></span>问答
+                    </a>
+                    <span class="element-divider"></span>
+                    <a href="/" class="element">
+                        <span class=""></span>招聘
+                    </a>
+
+                    <ul class="element-menu drop-up place-right">
+                        <li>{{range $key,$val:=.user}}
+                            <a class="dropdown-toggle" href="#">{{$val.User_name}}</a>
+                            <ul class="dropdown-menu " data-role="dropdown">
+                                <li><a href="requirements.html">我的主页</a>
+                                </li>
+                                <li>
+                                    私信
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="responsive.html">设置</a>
+                                </li>
+                                <li class=""><a href="layouts.html">退出</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="icons.html">Icons</a>
+                                </li>
+                            </ul>
+                            {{end}}
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div style="clear:both;height:45px;">
+    </div>
+    <script type="text/javascript" src="/static/js/base/metro-carousel.js"></script>
+    <div class="bg-steel ">
+        <div class="container padding20 fg-white">
+            <div class="carousel bg-transparent no-overflow " id="carousel2" style="width:100%;height:210px;">
+                <div class="slide">
+                    <div class="place-right">
+                        <img class="span3" alt="" src="/static/img/5.jpg">
+                    </div>
+                    <h2 class="fg-white ntm">关于我们</h2>
+                    <p class="fg-white">我们团队永远是那么活泼可爱,如果你想加入我们,请不要犹豫,来吧.....</p>
+                    <a class="button small inverse" href="">立刻加入我们吧</a>
+                </div>
+
+                <div class="slide">
+                    <div class="place-right">
+                        <img class="span3" alt="" src="/static/img/2.jpg">
+                    </div>
+                    <h2 class="fg-white ntm">网站介绍</h2>
+                    <p class="fg-white">我们团队永远是那么活泼可爱,如果你想加入我们,请不要犹豫,来吧.....</p>
+                    <a class="button small inverse" href="">立刻加入我们吧</a>
+                </div>
+                <div class="slide">
+                    <div class="place-right">
+                        <img class="span3" alt="" src="/static/img/3.jpg">
+                    </div>
+                    <h2 class="fg-white ntm">我们的业余生活</h2>
+                    <p class="fg-white">我们团队永远是那么活泼可爱,如果你想加入我们,请不要犹豫,来吧.....</p>
+                    <a class="button small inverse" href="">立刻加入我们吧</a>
+                </div>
+
+            </div>
+            <script type="text/javascript">
+            $('#carousel2').carousel({
+                height: 210,
+                period: 5000,
+                duration: 1000,
+                markers: {
+                    type: false
+                }
+            });
+            </script>
+        </div>
+    </div>
+    <div class="container" style="">
+        <div class="grid ">
+            <div class="row">
+                <div class="span10">
+                    <div>
+                        <h3>最新动态</h3>
+                    </div>
+                    <script type="text/javascript" src="/static/plugin/umeditor/umeditor.config.js"></script>
+
+                    <script type="text/javascript" src="/static/plugin/umeditor/umeditor.min.js"></script>
+
+                    <div class="fenye" style="pading-left:10px;">
+                        {{range $key,$val:=.qlist}}
+                        <div style="border-top:1px solid #efeae3;padding-bottom:20px;">
+                            <div style="clear:both;height:15px;">
+                                <h5>
+                                    <small>
+                                        <a class="fg-black" href="/question/show/lists/{{$val.Question_id}}">{{html2str $val.Question_content}}</a>
+
+                                    </small>
+                                </h5>
+                            </div>
+                            <div>
+                                <div class="span1" style="text-align:center;">
+                                    <h3 style="line-height:50px;font-style:oblique;font-style:red">5<sub>+</sub></h3>
+                                </div>
+                                <div class="span9">
+                                    <div style="padding:5px 0;">
+                                        <a style="background:red" class="" href="" data-hint="Title|是对方是否" data-hint-position="top">
+                                            <small >热爱生活</small>
+                                        </a>
+                                    </div>
+                                    <p class="tertiary-text" style="max-height:80px;overflow:hidden;text-overflow: ellipsis;">
+                                        <span>
+
+                                                {{html2str $val.Question_detail}}
+                                        </span>
+                                    </p>
+
+                                </div>
+
+
+                            </div>
+
+                            <div style="clear:both;height:15px;">
+
+                                <span class="place-right tertiary-text-secondary" style="margin-left:10px;">
+                                    <span class="icon-coffee fg-lighterBlue"></span>
+                                    <small>感谢(5)</small>
+                                </span>
+
+                                <span class="place-right tertiary-text-secondary" style="margin-left:10px;">
+                                    <span class=" icon-power fg-lighterBlue"></span>
+                                    <small>举报(9)</small>
+                                </span>
+
+
+
+                                <span onclick="loveTopic({{$val.Question_id}})" class="place-right tertiary-text-secondary" style="margin-left:10px;">
+                                    <span class="icon-bookmark fg-lighterBlue"></span>
+                                    <small>收藏(20)</small>
+                                </span>
+
+                                <span onclick="NoHelp({{$val.Question_id}})" class="place-right tertiary-text-secondary" style="margin-left:10px;">
+                                    <span class="icon-diamonds fg-lighterBlue"></span>
+                                    <small>没有帮助(
+                                        <span id="nohelp_{{$val.Question_id}}">8</span>)</small>
+                                </span>
+
+
+
+
+
+                                <span id="Zan_{{$val.Question_id}}" class="place-right tertiary-text-secondary" style="margin-left:10px;">
+                                    <span class=" icon-heart fg-lighterBlue"></span>
+                                    <small>赞(
+                                        <span id="zan_{{$val.Question_id}}">8</span>)</small>
+                                </span>
+                                <span class="place-left tertiary-text-secondary" style="margin-left:10px;">
+                                    <small>
+
+                                        {{ date $val.Add_time "Y-m-d H:i:s"}}</small>
+                                </span>
+                                <span id="quickanswer_{{$val.Question_id}}" onclick="viewcontent({{$val.Question_id}})" class="place-left tertiary-text-secondary" style="margin-left:10px;">
+                                    <span class=" icon-comments-2 fg-lighterBlue
+"></span>
+                                    <small>
+                                        快速回复(21)
+                                    </small>
+                                </span>
+                                <span class="place-left tertiary-text-secondary" style="margin-left:10px;">
+                                    <small>
+                                        <span class="icon-share-2 fg-lighterBlue"></span>分享(76)</small>
+                                </span>
+                            </div>
+                            <div style="clear:both;margin-top:20px;display:none;">
+                                <div class="balloon bottom">...</div>
+                            </div>
+                        </div>
+                        <div style="clear:both;height:0;"></div>
+                        <div class="comments" style="display:none;background:#EEEEEE;padding:20px;" id="rcomments_{{$val.Question_id}}">
+                            <span>评论:</span>
+                            <form action="/question/AddComments" method="post" enctype="multipart/form-data">
+                                <script type="text/plain" id="qcomments_{{$val.Question_id}}" name="qcomments" style="width:800px;height:240px;" charset="utf-8"></script>
+                                <script type="text/javascript" charset="utf-8">
+                                var options = {
+                                    "fileUrl": "/question/Image",
+                                    "filePath": "",
+                                    "imageUrl": "/question/Image",
+                                    "imagePath": "",
+                                    toolbar: [
+
+                                        ' emotion image ',
+                                    ]
+                                };
+                                var ue = UM.getEditor('qcomments_{{$val.Question_id}}', options);
+                                </script>
+                                <input type="hidden" name="question_id" value="{{$val.Question_id}}">
+                                <input type="hidden" name="published_uid" value="{{$val.Published_uid}}">
+
+                                <input type="submit" name="submit" submit="提交">
+                            </form>
+                        </div>
+
+                        {{end}}
+                        <script type="text/javascript">
+                        //发表问题标题验证
+                        $("#qtitle").blur(function() {
+                            if (!$("#qtitle").val()) {
+                                //alert($("#regname").val());
+                                alert("请输入标题");
+                            };
+                        });
+                         //问题内容验证
+                        $("#qcontent").blur(function() {
+                            if (!$("#qcontent").val()) {
+                                alert("请输入问题描述");
+                            };
+                            //alert();
+
+                        });
+
+
+                        /*$("#submit").click(function() {
+
+                            $.ajax({
+                                type: "post",
+                                url: "question/AddQuestion"
+                            });
+                        });
+    */
+                         //快速回复
+
+                        $("#quickanswer").click(function() {
+                            var kk;
+                            if (kk == 0) {
+                                kk = 1;
+                                $("#comments").css("display", $(this).css("display") == "none" ? "display" : "");
+
+                            } else {
+
+                                $("#comments").css("display", "");
+                                kk = 0;
+                            }
+
+                            //var jj = 1;
+                        });
+                        /*
+                        document.onclick = function(e) {
+                            var e = e ? e : window.event;
+                            var tar = e.srcElement || e.target;
+                            if (tar.id != "comments") {
+                                if ($(tar).attr("class") == "comments") {
+                                    $(".comments").css("display", "block")
+                                } else {
+
+                                    $(".comments").css("display", "none")
+                                }
+                            }
+
+                        }
+                        */
+                        </script>
+                    </div>
+                    <div class="fenye" style="margin-top:40px;">
+                        <div class="pagination" style="margin-left:200px;">
+                            <ul>
+                                <li class="first"><a><i class="icon-first-2"></i></a>
+                                </li>
+                                <li class="prev"><a><i class="icon-previous"></i></a>
+                                </li>
+                                <li><a>1</a>
+                                </li>
+                                <li><a>2</a>
+                                </li>
+                                <li class="active"><a>3</a>
+                                </li>
+                                <li class="spaces"><a>...</a>
+                                </li>
+                                <li class="disabled"><a>4</a>
+                                </li>
+                                <li><a>500</a>
+                                </li>
+                                <li class="next"><a><i class="icon-next"></i></a>
+                                </li>
+                                <li class="last"><a><i class="icon-last-2"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="background:#EEEEEE;padding:20px;">
+                        共有帖子数:20000000
+                        <script type="text/javascript" charset="utf-8">
+                        window.UEDITOR_HOME_URL = "/static/plugin/umeditor/";
+                        </script>
+                        <span>共有精品帖子:23429</span>
+
+
+                        <!-- 语言包文件(建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败) -->
+                        <form action="/question/AddQuestion" method="post" enctype="multipart/form-data">
+                            <div class="input-control text">
+                                <input type="text" value="" name="qtitle" placeholder="请输入标题" />
+                                <button class="btn-clear"></button>
+                            </div>
+                            <script type="text/plain" id="qcontent" name="qcontent" style="width:800px;height:240px;" charset="utf-8"></script>
+                            <script type="text/javascript" charset="utf-8">
+                            var options = {
+                                "fileUrl": "/question/Image",
+                                "filePath": "",
+                                "imageUrl": "/question/Image",
+                                "imagePath": ""
+                            };
+                            var ue = UM.getEditor('qcontent', options);
+                            </script>
+                            <input type="hidden" name="uid" id="hiddenuid" value="">
+                            <input type="submit" name="submit" submit="提交">
+                        </form>
+                    </div>
+                </div>
+                <div class="span4.5">
+                    <div class="" style="width:330px;padding:20px;">
+                        {{range $key,$val :=.user}}
+                        <address>
+                            <strong>{{$val.User_name}},{{$val.Job_name}}</strong>
+                            <br>
+                            <br /><a class="tertiary-text-secondary" href="">粉丝:</a> {{$val.Friend_count}}
+                            <br><a class="tertiary-text-secondary" href="">关注:</a> {{$val.Friend_count}}
+                            <br>
+                            <br>
+                            <div>
+                                <span>我的问题:{{$val.Question_count}}</span>
+                                <span>回答数:{{$val.Answer_count}}</span>
+                            </div>
+                            <abbr title="Phone">P:</abbr>(123) 456-7890
+                        </address>
+                        {{end}}
+                    </div>
+                    <div class="" style="border:1px solid #efeae3;width:330px;padding:20px;margin-top:20px;">
+                        <h5>
+                            <span class="icon-libreoffice on-left fg-lighterBlue"></span><a class="tertiary-text-secondary " href="/question/draft">我的草稿</a>
+                        </h5>
+                        <h5>
+                            <span class="icon-bookmark on-left fg-lighterBlue"> <a class="tertiary-text-secondary" href="">我的收藏</a>
+                        </h5>
+                        <h5>
+                            <span class="icon-star-3 on-left fg-lighterBlue"> <a class="tertiary-text-secondary" href="">我关注的问题</a>
+                        </h5>
+                        <h5>
+                            <span class="icon-forward on-left fg-lighterBlue"> <a class="tertiary-text-secondary" href="">邀请我回答的问题</a>
+                        </h5>
+                    </div>
+                    <div class="" style="border:1px solid #efeae3;width:330px;padding:20px;margin-top:20px;">
+                        <h5>
+                            <span class="icon-help on-left fg-lighterBlue"> <a class="tertiary-text-secondary" href="">所有问题</a>
+                        </h5>
+                        <h5>
+                            <span class="icon-flag-2 on-left fg-lighterBlue"> <a class="tertiary-text-secondary" href="">话题广场</a>
+                        </h5>
+                        <h5>
+                            <span class="icon-medal-2 on-left fg-lighterBlue"> <a class="tertiary-text-secondary" href="">首场秀</a>
+                        </h5>
+                        <h5>
+                            <span class="icon-share-3 on-left fg-lighterBlue"> <a class="tertiary-text-secondary" href="">邀请朋友来大庆阳</a>
+                        </h5>
+                    </div>
+                    <div class="" style="border:1px solid #efeae3;width:330px;padding:20px;margin-top:20px;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid" style="margin:0 auto;">
+        <div class="row">
+            <div class="span3">
+
+            </div>
+            <div class="span15">
+                这里是底部
+            </div>
+            <div class="span3">
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    function getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+
+        if (arr = document.cookie.match(reg))
+
+            return (arr[2]);
+        else
+            return null;
+    }
+    //alert(getCookie("uid"));
+    </script>
+    <script type="text/javascript"></script>
+    <script type="text/javascript">
+    window.onload = function() {
+
+        $("#hiddenuid").val(getCookie("uid"));
+    }
+    </script>
+
+</body>
+
+</html>

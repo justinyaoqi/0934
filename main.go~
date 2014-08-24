@@ -1,0 +1,18 @@
+package main
+
+import (
+	_ "0934/routers"
+	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/orm"
+	//"time"
+)
+
+func main() {
+
+	//orm.Debug = true
+	orm.RegisterDataBase("default", "mysql", "root:dskdsk@/0934?charset=utf8")
+	//orm.DefaultTimeLoc = time.UTC
+	beego.SessionOn = true
+	beego.Run()
+
+}
